@@ -157,3 +157,22 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+//whatsapp funciton
+const whatsappForm = document.querySelector("[data-whatsapp-form]");
+
+whatsappForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = whatsappForm.elements["fullname"].value.trim();
+  const email = whatsappForm.elements["email"].value.trim();
+  const message = whatsappForm.elements["message"].value.trim();
+
+  const text =
+    `Hi Erick, my name is ${name}.\n` +
+    `Email: ${email}\n\n` +
+    `${message}`;
+
+  const url = `https://wa.me/971503497381?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank", "noopener");
+});
